@@ -53,8 +53,8 @@ function sayGoodbye(name) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(celsTemp) {
-  return Math.round(celsTemp * 1.8 + 32)
+function temperatureCtoF(temp) {
+  return Math.round(temp * 1.8 + 32)
 }
 
 
@@ -76,17 +76,15 @@ function temperatureCtoF(celsTemp) {
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
 function temperatureInF(temp, unit) {
-  if (unit == 'F')
+  if (unit === 'F')
   {
-  return temp+'F';
-  }else if(unit == 'C')
-  {
-  temp = (Math.round((temp -32) * 0.55555556)); //formula from F to C is (fahrTemp -32) * 0.55555556
-  return temp+'F';
+  return temp + 'F';
   }
-}
-
-
+  else if (unit === 'C')
+  {
+  return temperatureCtoF(temp) + "F";
+  }
+  }
 
 
 /**
@@ -106,7 +104,8 @@ function temperatureInF(temp, unit) {
  * }
 */
 function makePersonObject(id, name, email) {
-    
+  const person = {id, name, email}
+  return person; 
 }
 
 /**
@@ -122,8 +121,8 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(person) {
+  return `Hello, my name is ${person.name}`
 }
 
 
@@ -142,8 +141,12 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(array) {
+  for (let i = 0; i < array.length; i++){
+    if(array[i] === `apple`) {
+      return i;
+    }
+  }
 }
 
 /**
@@ -161,8 +164,16 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(array) {
+  for (let i = 0; i < array.length; i++){
+    if (array[i] === `apple`) {
+      array[i] = true;
+    }
+    else {
+      array[i] = false;
+    }
+  }
+  return array;
 }
 
 
