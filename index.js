@@ -104,8 +104,8 @@ function temperatureInF(temp, unit) {
  * }
 */
 function makePersonObject(id, name, email) {
-  const person = {id, name, email}
-  return person; 
+  const makePerson = {id, name, email}
+  return makePerson; 
 }
 
 /**
@@ -121,8 +121,8 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(person) {
-  return `Hello, my name is ${person.name}`
+function getName(makePerson) {
+  return `Hello, my name is ${makePerson.name}`
 }
 
 
@@ -147,6 +147,7 @@ function appleIndex(array) {
       return i;
     }
   }
+  
 }
 
 /**
@@ -231,7 +232,8 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  const cars = inventory[index];
+  return `This is a ${cars.car_make} ${cars.car_model}`;
 }
 
 /**
@@ -245,8 +247,9 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  const getLastCar = inventory[inventory.length - 1];
+  return `This is a ${getLastCar.car_make} ${getLastCar.car_model}`
 }
 
 /**
@@ -258,8 +261,12 @@ function getLastCarInfo(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+  let yearCars = [];
+   for (let i = 0; i < inventory.length; i++) {
+     yearCars.push(inventory[i].car_year);
+   }
+   return yearCars;
 }
 
 /**
